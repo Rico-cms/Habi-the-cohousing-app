@@ -42,11 +42,11 @@
 
     <!-- 1. SPLASH SCREEN -->
     <div id="splash-screen" class="absolute inset-0 z-50 flex flex-col items-center justify-center bg-red-600 text-white animate-fade-in">
-        <div class="w-32 h-32 bg-black flex items-center justify-center mb-8 border-4 border-white transform -rotate-3">
+        <div class="w-32 h-32 bg-black flex items-center justify-center mb-8 border-4 border-white transform -rotate-3 rounded-3xl">
             <i data-lucide="home" class="w-16 h-16 text-white"></i>
         </div>
         <h1 class="text-7xl font-black tracking-tighter uppercase mb-4">Habi</h1>
-        <p class="text-white text-xl font-bold tracking-widest uppercase text-center px-4">No Bullshit. Just Match.</p>
+        <p class="text-white text-xl font-bold tracking-widest uppercase text-center px-4">Zéro palabre. Juste des bons colocs.</p>
     </div>
 
     <!-- 2. ONBOARDING -->
@@ -62,7 +62,10 @@
         
         <!-- SIDEBAR (DESKTOP) -->
         <div class="hidden md:flex flex-col w-72 bg-white border-r-4 border-black h-full shrink-0">
-            <div class="p-8 border-b-4 border-black">
+            <div class="p-8 border-b-4 border-black flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-600 rounded-xl border-2 border-black flex items-center justify-center">
+                    <i data-lucide="home" class="w-6 h-6 text-white"></i>
+                </div>
                 <h1 class="text-4xl font-black uppercase tracking-tighter text-red-600">Habi</h1>
             </div>
             <div class="flex-1 py-8 px-4 flex flex-col gap-4" id="desktop-nav">
@@ -82,7 +85,7 @@
                             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Le Radar</h2>
                             <p class="text-lg text-gray-500 font-bold">Colocs potentiels</p>
                         </div>
-                        <div class="bg-black text-white p-3 border-2 border-black hover:bg-white hover:text-black cursor-pointer transition-colors">
+                        <div class="bg-black text-white p-3 border-2 border-black rounded-xl hover:bg-white hover:text-black cursor-pointer transition-colors">
                             <i data-lucide="filter" class="w-6 h-6"></i>
                         </div>
                     </div>
@@ -95,22 +98,22 @@
                 <!-- MATCH OVERLAY -->
                 <div id="match-overlay" class="hidden-screen h-full w-full flex flex-col items-center justify-center p-6 bg-red-600 animate-fade-in relative overflow-hidden">
                     <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_white_2px,_transparent_2px)] bg-[length:24px_24px]"></div>
-                    <div class="relative z-10 flex flex-col items-center bg-white p-8 md:p-12 border-4 border-black brutal-shadow-lg max-w-md w-full text-center">
+                    <div class="relative z-10 flex flex-col items-center bg-white p-8 md:p-12 border-4 border-black brutal-shadow-lg rounded-3xl max-w-md w-full text-center">
                         <h2 class="text-5xl md:text-6xl font-black text-black uppercase mb-2 tracking-tighter">Ça Matche !</h2>
                         <p id="match-subtitle" class="text-lg font-bold mb-8 uppercase text-gray-600">Toi et ... avez le même rythme.</p>
                         
                         <div class="relative mb-8">
-                            <img id="match-img" src="" class="w-40 h-40 md:w-48 md:h-48 rounded-none border-4 border-black object-cover grayscale-[20%]" />
-                            <div class="absolute -bottom-4 -right-4 bg-red-600 border-4 border-black p-3">
+                            <img id="match-img" src="" class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-black object-cover" />
+                            <div class="absolute bottom-0 right-0 bg-red-600 border-4 border-black rounded-full p-3">
                                 <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
                             </div>
                         </div>
                         
                         <div class="flex flex-col gap-4 w-full">
-                            <button onclick="window.startChatFromMatch()" class="w-full bg-black text-white py-4 border-4 border-black font-black uppercase text-xl hover:bg-red-600 hover:text-white transition-colors flex justify-center items-center gap-3 brutal-shadow hover:shadow-none active:translate-y-1">
+                            <button onclick="window.startChatFromMatch()" class="w-full bg-black text-white py-4 border-4 border-black rounded-2xl font-black uppercase text-xl hover:bg-red-600 hover:text-white transition-colors flex justify-center items-center gap-3 brutal-shadow hover:shadow-none active:translate-y-1">
                                 <i data-lucide="message-circle" class="w-6 h-6"></i> Go discuter
                             </button>
-                            <button onclick="window.closeMatchOverlay()" class="w-full bg-white text-black py-4 border-4 border-black font-black uppercase text-xl hover:bg-gray-100 transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
+                            <button onclick="window.closeMatchOverlay()" class="w-full bg-white text-black py-4 border-4 border-black rounded-2xl font-black uppercase text-xl hover:bg-gray-100 transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
                                 Continuer
                             </button>
                         </div>
@@ -123,52 +126,52 @@
                     <p class="text-lg text-gray-500 font-bold mb-10">Vos futurs colocs vous attendent.</p>
                     
                     <div class="mb-10">
-                        <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-6">Nouveaux Matchs</h3>
+                        <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-6 rounded-sm">Nouveaux Matchs</h3>
                         <div id="new-matches-list" class="flex gap-4 overflow-x-auto pb-4 no-scrollbar"></div>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-6">Discussions</h3>
+                        <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-2 mb-6 rounded-sm">Discussions</h3>
                         <div id="chats-list" class="flex flex-col gap-4"></div>
                     </div>
                 </div>
 
                 <!-- FINANCE TAB -->
                 <div id="tab-finance" class="p-6 md:p-10 animate-fade-in max-w-5xl mx-auto hidden-screen">
-                    <div class="flex justify-between items-end mb-10 border-b-4 border-black pb-6">
+                    <div class="flex justify-between items-end mb-10 border-b-4 border-black pb-6 rounded-sm">
                         <div>
                             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">La Caisse</h2>
                             <p class="text-lg text-gray-500 font-bold uppercase">L'argent de la coloc, sans embrouille.</p>
                         </div>
-                        <div class="hidden md:block bg-black p-3 border-4 border-red-600 brutal-shadow-red">
+                        <div class="hidden md:block bg-black p-3 border-4 border-red-600 rounded-2xl brutal-shadow-red">
                             <i data-lucide="pie-chart" class="w-10 h-10 text-white"></i>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-                        <div class="lg:col-span-2 bg-red-600 text-white p-8 md:p-12 border-4 border-black brutal-shadow-lg relative overflow-hidden flex flex-col justify-center">
+                        <div class="lg:col-span-2 bg-red-600 text-white p-8 md:p-12 border-4 border-black rounded-3xl brutal-shadow-lg relative overflow-hidden flex flex-col justify-center">
                             <div class="absolute top-[-10%] right-[-5%] opacity-10 pointer-events-none">
                                 <i data-lucide="credit-card" class="w-64 h-64 text-black"></i>
                             </div>
-                            <h3 class="text-xl font-black uppercase tracking-widest mb-2 text-black bg-white inline-block w-max px-3 py-1 border-2 border-black">Reste à Payer</h3>
-                            <div id="finance-total-due" class="text-6xl md:text-8xl font-black tracking-tighter mb-8 text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">0,00 €</div>
+                            <h3 class="text-xl font-black uppercase tracking-widest mb-2 text-black bg-white inline-block w-max px-3 py-1 border-2 border-black rounded-xl">Reste à Payer</h3>
+                            <div id="finance-total-due" class="text-4xl md:text-6xl font-black tracking-tighter mb-8 text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">0 FCFA</div>
                             <div id="finance-pay-all-btn-container"></div>
                         </div>
 
                         <div class="flex flex-col gap-6">
-                            <button onclick="window.openExpenseModal()" class="flex-1 bg-white border-4 border-black p-6 hover:bg-black hover:text-white transition-colors group flex flex-col justify-center items-center text-center brutal-shadow hover:shadow-none active:translate-y-1">
-                                <div class="bg-gray-100 group-hover:bg-red-600 p-4 border-4 border-black mb-4 transition-colors">
+                            <button onclick="window.openExpenseModal()" class="flex-1 bg-white border-4 border-black rounded-3xl p-6 hover:bg-black hover:text-white transition-colors group flex flex-col justify-center items-center text-center brutal-shadow hover:shadow-none active:translate-y-1">
+                                <div class="bg-gray-100 group-hover:bg-red-600 p-4 border-4 border-black rounded-full mb-4 transition-colors">
                                     <i data-lucide="plus" class="w-8 h-8 group-hover:text-white text-black"></i>
                                 </div>
                                 <span class="font-black uppercase text-xl">Ajouter Dépense</span>
                             </button>
                             
-                            <div class="flex-1 bg-gray-100 border-4 border-black p-6 flex flex-col justify-center items-center text-center relative overflow-hidden">
+                            <div class="flex-1 bg-gray-100 border-4 border-black rounded-3xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden">
                                 <div class="absolute -right-4 -bottom-4 opacity-10">
                                     <i data-lucide="receipt" class="w-32 h-32"></i>
                                 </div>
                                 <span class="font-black uppercase text-gray-500 mb-1 z-10 text-sm">Total Coloc (Actuel)</span>
-                                <span id="finance-total-coloc" class="font-black text-4xl text-black z-10">0 €</span>
+                                <span id="finance-total-coloc" class="font-black text-3xl text-black z-10">0 FCFA</span>
                             </div>
                         </div>
                     </div>
@@ -185,17 +188,17 @@
                     <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">Le QG</h2>
                     <p class="text-lg text-gray-500 font-bold mb-10">La vie commune en mode pro.</p>
 
-                    <div class="bg-red-600 text-white border-4 border-black p-6 mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center brutal-shadow">
-                        <div class="bg-black p-4 border-2 border-white shrink-0">
+                    <div class="bg-red-600 text-white border-4 border-black rounded-3xl p-6 mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center brutal-shadow overflow-hidden">
+                        <div class="bg-black p-4 border-2 border-white rounded-2xl shrink-0">
                             <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
                             <h4 class="font-black text-2xl uppercase">Règle de la semaine</h4>
-                            <p class="text-lg font-medium mt-1">Pas de bruit après 23h ce jeudi, Thomas a un gros exam le lendemain. Respect !</p>
+                            <p class="text-lg font-medium mt-1 text-white/90">Pas de bruit après 23h ce jeudi, Cédric a une grosse soutenance le lendemain. On respecte !</p>
                         </div>
                     </div>
 
-                    <div class="border-b-4 border-black pb-4 mb-6">
+                    <div class="border-b-4 border-black pb-4 mb-6 rounded-sm">
                         <h3 class="text-2xl font-black uppercase">Corvées de la semaine</h3>
                     </div>
 
@@ -205,50 +208,50 @@
                 <!-- PROFILE TAB -->
                 <div id="tab-profile" class="p-6 md:p-10 animate-fade-in max-w-3xl mx-auto hidden-screen">
                     <div class="text-center mb-12">
-                        <div class="w-40 h-40 mx-auto bg-gray-200 mb-6 overflow-hidden border-4 border-black relative">
-                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale-[30%]" />
-                            <div class="absolute bottom-2 right-2 bg-red-600 p-2 border-2 border-black">
+                        <div class="w-40 h-40 mx-auto bg-gray-200 mb-6 overflow-hidden border-4 border-black rounded-full relative brutal-shadow">
+                            <img src="https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" />
+                            <div class="absolute bottom-2 right-6 bg-red-600 p-2 border-2 border-black rounded-full">
                                 <i data-lucide="check" class="w-6 h-6 text-white"></i>
                             </div>
                         </div>
-                        <h2 class="text-5xl font-black uppercase tracking-tight">Alexandre</h2>
+                        <h2 class="text-5xl font-black uppercase tracking-tight">Amadou</h2>
                         <p class="text-xl font-bold text-gray-500 uppercase mt-2">Membre depuis 2023</p>
                     </div>
 
-                    <div class="bg-white p-8 border-4 border-black mb-8 brutal-shadow-lg">
+                    <div class="bg-white p-8 border-4 border-black rounded-3xl mb-8 brutal-shadow-lg">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                             <div>
                                 <h3 class="font-black text-3xl uppercase flex items-center gap-3">
-                                    <i data-lucide="shield-check" class="w-8 h-8 text-red-600"></i> Trust Score
+                                    <i data-lucide="shield-check" class="w-8 h-8 text-red-600"></i> Score de Confiance
                                 </h3>
-                                <p class="text-gray-500 font-bold uppercase mt-1">Le baromètre de la confiance</p>
+                                <p class="text-gray-500 font-bold uppercase mt-1">Le baromètre de la fiabilité</p>
                             </div>
-                            <div class="bg-black text-white px-6 py-4 border-2 border-black font-black text-4xl">
+                            <div class="bg-black text-white px-6 py-4 border-2 border-black rounded-2xl font-black text-4xl">
                                 98<span class="text-xl text-red-500">/100</span>
                             </div>
                         </div>
                         
                         <div class="space-y-4">
-                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200">
-                                <div class="w-8 h-8 bg-black flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
-                                <p class="text-lg font-bold text-black uppercase">Identité vérifiée (ID Nationale)</p>
+                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200 rounded-2xl">
+                                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
+                                <p class="text-lg font-bold text-black uppercase">Identité vérifiée (CNI)</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200">
-                                <div class="w-8 h-8 bg-black flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
+                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200 rounded-2xl">
+                                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
                                 <p class="text-lg font-bold text-black uppercase">12 mois de loyers payés à l'heure</p>
                             </div>
-                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200">
-                                <div class="w-8 h-8 bg-black flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
+                            <div class="flex items-center gap-4 bg-gray-50 p-4 border-2 border-gray-200 rounded-2xl">
+                                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-white"></i></div>
                                 <p class="text-lg font-bold text-black uppercase">5/5 de moyenne par les ex-colocs</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button class="w-full bg-white border-4 border-black text-black py-5 font-black uppercase text-lg hover:bg-black hover:text-white transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
+                        <button class="w-full bg-white border-4 border-black rounded-2xl text-black py-5 font-black uppercase text-lg hover:bg-black hover:text-white transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
                             Éditer le profil
                         </button>
-                        <button onclick="window.location.reload()" class="w-full bg-red-600 border-4 border-black text-white py-5 font-black uppercase text-lg hover:bg-black transition-colors flex items-center justify-center gap-2 brutal-shadow hover:shadow-none active:translate-y-1">
+                        <button onclick="window.location.reload()" class="w-full bg-red-600 border-4 border-black rounded-2xl text-white py-5 font-black uppercase text-lg hover:bg-black transition-colors flex items-center justify-center gap-2 brutal-shadow hover:shadow-none active:translate-y-1">
                             <i data-lucide="log-out" class="w-5 h-5"></i> Déconnexion
                         </button>
                     </div>
@@ -259,10 +262,10 @@
             <!-- CHAT INTERFACE OVERLAY -->
             <div id="chat-interface" class="hidden-screen absolute inset-0 z-50 bg-white flex flex-col h-full w-full animate-fade-in">
                 <div class="flex items-center gap-4 p-4 md:p-6 border-b-4 border-black bg-red-600 text-white shrink-0">
-                    <button onclick="window.closeChat()" class="p-2 border-2 border-black bg-black hover:bg-white hover:text-black transition-colors">
+                    <button onclick="window.closeChat()" class="p-2 border-2 border-black rounded-xl bg-black hover:bg-white hover:text-black transition-colors">
                         <i data-lucide="arrow-left" class="w-6 h-6 md:w-8 md:h-8"></i>
                     </button>
-                    <img id="chat-header-img" src="" class="w-12 h-12 md:w-16 md:h-16 border-2 border-black object-cover grayscale-[20%]" />
+                    <img id="chat-header-img" src="" class="w-12 h-12 md:w-16 md:h-16 border-2 border-black rounded-full object-cover" />
                     <div>
                         <h2 id="chat-header-name" class="text-2xl md:text-3xl font-black uppercase tracking-tight leading-none">Nom</h2>
                         <p id="chat-header-match" class="text-sm font-bold uppercase opacity-80">90% Match</p>
@@ -272,8 +275,8 @@
                 <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-8 bg-gray-50 flex flex-col gap-6"></div>
 
                 <div class="p-4 md:p-6 border-t-4 border-black bg-white flex gap-3 shrink-0 pb-safe">
-                    <input id="chat-input" type="text" placeholder="ÉCRIS TON MESSAGE..." class="flex-1 p-4 border-4 border-black font-bold outline-none focus:bg-gray-100 uppercase placeholder:normal-case placeholder:text-gray-400 text-lg" onkeypress="if(event.key === 'Enter') window.sendMessage()" />
-                    <button onclick="window.sendMessage()" class="bg-red-600 text-white p-4 border-4 border-black hover:bg-black transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
+                    <input id="chat-input" type="text" placeholder="ÉCRIS TON MESSAGE..." class="flex-1 p-4 border-4 border-black rounded-2xl font-bold outline-none focus:bg-gray-100 uppercase placeholder:normal-case placeholder:text-gray-400 text-lg" onkeypress="if(event.key === 'Enter') window.sendMessage()" />
+                    <button onclick="window.sendMessage()" class="bg-red-600 text-white p-4 border-4 border-black rounded-2xl hover:bg-black transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
                         <i data-lucide="send" class="w-6 h-6 md:w-8 md:h-8"></i>
                     </button>
                 </div>
@@ -281,8 +284,8 @@
 
             <!-- EXPENSE MODAL -->
             <div id="expense-modal" class="hidden-screen fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-                <div class="bg-white border-4 border-black w-full max-w-md brutal-shadow-red flex flex-col relative animate-slide-in-right">
-                    <button onclick="window.closeExpenseModal()" class="absolute top-4 right-4 bg-white border-4 border-black p-2 hover:bg-black hover:text-white transition-colors z-10">
+                <div class="bg-white border-4 border-black rounded-3xl w-full max-w-md brutal-shadow-red flex flex-col relative animate-slide-in-right overflow-hidden">
+                    <button onclick="window.closeExpenseModal()" class="absolute top-4 right-4 bg-white border-4 border-black rounded-full p-2 hover:bg-black hover:text-white transition-colors z-10">
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                     <div class="p-8 border-b-4 border-black bg-red-600 text-white pr-16">
@@ -291,21 +294,21 @@
                     <form onsubmit="window.submitExpense(event)" class="p-8 flex flex-col gap-6 bg-gray-50">
                        <div class="flex flex-col gap-2">
                          <label class="font-black uppercase text-sm text-gray-500">Intitulé</label>
-                         <input id="exp-title" type="text" placeholder="EX: PIZZAS, ÉLECTRICITÉ..." class="p-4 border-4 border-black font-bold outline-none focus:bg-white uppercase text-lg w-full" required />
+                         <input id="exp-title" type="text" placeholder="EX: EAU, COURSES..." class="p-4 border-4 border-black rounded-xl font-bold outline-none focus:bg-white uppercase text-lg w-full" required />
                        </div>
                        <div class="flex flex-col gap-2">
-                         <label class="font-black uppercase text-sm text-gray-500">Montant (€)</label>
-                         <input id="exp-amount" type="number" step="0.01" placeholder="0.00" class="p-4 border-4 border-black font-bold outline-none focus:bg-white text-lg w-full" required />
+                         <label class="font-black uppercase text-sm text-gray-500">Montant (FCFA)</label>
+                         <input id="exp-amount" type="number" placeholder="Ex: 5000" class="p-4 border-4 border-black rounded-xl font-bold outline-none focus:bg-white text-lg w-full" required />
                        </div>
                        <div class="flex flex-col gap-2">
                          <label class="font-black uppercase text-sm text-gray-500">Catégorie</label>
-                         <select id="exp-type" class="p-4 border-4 border-black font-bold outline-none focus:bg-white uppercase text-lg w-full cursor-pointer appearance-none bg-white">
-                           <option value="shopping">🛒 Courses</option>
+                         <select id="exp-type" class="p-4 border-4 border-black rounded-xl font-bold outline-none focus:bg-white uppercase text-lg w-full cursor-pointer appearance-none bg-white">
+                           <option value="shopping">🛒 Marché</option>
                            <option value="bill">⚡ Facture</option>
                            <option value="rent">🏠 Loyer</option>
                          </select>
                        </div>
-                       <button type="submit" class="mt-4 bg-black text-white p-5 border-4 border-black font-black uppercase text-xl hover:bg-red-600 transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
+                       <button type="submit" class="mt-4 bg-black text-white p-5 border-4 border-black rounded-xl font-black uppercase text-xl hover:bg-red-600 transition-colors brutal-shadow hover:shadow-none active:translate-y-1">
                          Valider la dépense
                        </button>
                     </form>
@@ -327,34 +330,36 @@
     <script>
         // --- DATA ---
         let MOCK_PROFILES = [
-            { id: 1, name: 'Léa', age: 24, role: 'Étudiante', match: 94, img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600', bio: 'Oiseau de nuit, maniaque de la propreté. J\'adore cuisiner pour la coloc !', tags: ['Calme', 'Soirées', 'Végétarienne'] },
-            { id: 2, name: 'Thomas', age: 26, role: 'Freelance', match: 88, img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600', bio: 'Toujours de bonne humeur. Je bosse souvent de la maison.', tags: ['Lève-tôt', 'Apéro', 'Sportif'] },
-            { id: 3, name: 'Sarah', age: 23, role: 'Graphiste', match: 81, img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600', bio: 'Créative et bordélique dans ma chambre, mais clean dans le salon.', tags: ['Cinéma', 'Chats', 'Flexitarienne'] },
+            { id: 1, name: 'Awa', age: 24, role: 'Étudiante', match: 94, img: 'https://images.unsplash.com/photo-1531123897727-8f129e1bfa8ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', bio: 'Oiseau de nuit, maniaque de la propreté. J\'adore cuisiner pour la coloc !', tags: ['Calme', 'Séries', 'Végétarienne'] },
+            { id: 2, name: 'Cédric', age: 26, role: 'Freelance', match: 88, img: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', bio: 'Toujours de bonne humeur. Je bosse souvent depuis la maison.', tags: ['Lève-tôt', 'Chill', 'Sportif'] },
+            { id: 3, name: 'Bintou', age: 23, role: 'Graphiste', match: 81, img: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', bio: 'Créative et un peu désordonnée dans ma chambre, mais clean au salon.', tags: ['Cinéma', 'Sorties', 'Flexitarienne'] },
         ];
 
         let expenses = [
-            { id: 1, title: 'Loyer Avril', amount: 600, paid: false, type: 'rent', date: '01/04' },
-            { id: 2, title: 'Internet', amount: 35, paid: true, type: 'bill', date: '05/04' },
-            { id: 3, title: 'Courses communes', amount: 42.5, paid: false, type: 'shopping', date: 'Aujourd\'hui' },
+            { id: 1, title: 'Loyer Avril', amount: 150000, paid: false, type: 'rent', date: '01/04' },
+            { id: 2, title: 'Facture CIE', amount: 25000, paid: true, type: 'bill', date: '05/04' },
+            { id: 3, title: 'Marché commun', amount: 15000, paid: false, type: 'shopping', date: 'Aujourd\'hui' },
         ];
 
         let chores = [
-            { id: 1, title: 'Sortir les poubelles', assignee: 'Moi', done: false },
-            { id: 2, title: 'Nettoyer la salle de bain', assignee: 'Léa', done: true },
-            { id: 3, title: 'Passer l\'aspirateur', assignee: 'Thomas', done: false },
+            { id: 1, title: 'Sortir la poubelle', assignee: 'Moi', done: false },
+            { id: 2, title: 'Nettoyer la douche', assignee: 'Awa', done: true },
+            { id: 3, title: 'Balayer le salon', assignee: 'Cédric', done: false },
         ];
 
         const ONBOARDING_STEPS = [
-            { title: "LA COLOC, SANS LES DRAMAS.", subtitle: "Trouve des gens qui ont le même mode de vie que toi. Finis les discours, place aux faits.", icon: "zap", action: "LET'S GO" },
-            { title: "TON RYTHME DE VIE ?", subtitle: "Sois honnête, personne ne veut d'un lève-tôt bruyant à 6h du mat'.", options: [{ icon: "sun", label: "Lève-tôt (6h - 8h)" }, { icon: "coffee", label: "Classique (8h - 10h)" }, { icon: "moon", label: "Oiseau de nuit (10h+)" }] },
-            { title: "NIVEAU DE PROPRETÉ ?", subtitle: "Détermine ton seuil de tolérance à la poussière.", options: [{ icon: "sparkles", label: "Maniaque" }, { icon: "check-circle-2", label: "Propre mais relax" }, { icon: "alert-circle", label: "Bordélique assumé" }] }
+            { title: "LA COLOC, SANS PALABRES.", subtitle: "Trouve des gens qui ont le même mode de vie que toi. Le bon comportement, c'est ce qui compte.", icon: "zap", action: "ON Y VA" },
+            { title: "TON RYTHME DE VIE ?", subtitle: "Sois honnête, personne ne veut d'un lève-tôt bruyant à 6h du mat'.", options: [{ icon: "sun", label: "Lève-tôt (6h - 8h)" }, { icon: "coffee", label: "Normal (8h - 10h)" }, { icon: "moon", label: "Oiseau de nuit (10h+)" }] },
+            { title: "NIVEAU DE PROPRETÉ ?", subtitle: "Détermine ton seuil de tolérance à la poussière.", options: [{ icon: "sparkles", label: "Maniaque (Opérationnel)" }, { icon: "check-circle-2", label: "Propre mais relax" }, { icon: "alert-circle", label: "Bordélique organisé" }] },
+            { title: "SOCIABILITÉ ?", subtitle: "Comment tu vois l'ambiance à la maison ?", options: [{ icon: "users", label: "Famille (On fait tout ensemble)" }, { icon: "message-circle", label: "Potes (Apéros le week-end)" }, { icon: "headphones", label: "Chacun dans son coin" }] },
+            { title: "LES VISITES ?", subtitle: "Ta politique concernant les invités externes.", options: [{ icon: "home", label: "Porte ouverte (C'est le QG)" }, { icon: "calendar", label: "Seulement le week-end" }, { icon: "lock", label: "C'est privé (Pas trop de monde)" }] }
         ];
 
         const NAV_ITEMS = [
             { id: 'match', icon: 'sparkles', label: 'Match' },
             { id: 'messages', icon: 'message-circle', label: 'Chat' },
             { id: 'finance', icon: 'credit-card', label: 'Caisse' },
-            { id: 'home', icon: 'home', label: 'QG' },
+            { id: 'home', icon: 'home', label: 'Maison' },
             { id: 'profile', icon: 'user', label: 'Profil' }
         ];
 
@@ -383,7 +388,7 @@
             
             // Progress
             document.getElementById('onboarding-progress').innerHTML = ONBOARDING_STEPS.map((_, i) => 
-                `<div class="h-3 flex-1 ${i <= currentStep ? 'bg-red-600' : 'bg-gray-200'} transition-all duration-300"></div>`
+                `<div class="h-3 flex-1 rounded-full ${i <= currentStep ? 'bg-red-600' : 'bg-gray-200'} transition-all duration-300"></div>`
             ).join('');
 
             // Content
@@ -395,7 +400,7 @@
             if (step.options) {
                 html += `<div class="grid grid-cols-1 gap-4">
                     ${step.options.map(opt => `
-                        <button onclick="window.nextOnboarding()" class="w-full bg-white p-6 border-4 border-black flex items-center gap-6 hover:bg-black hover:text-white transition-all active:translate-y-1 text-left group">
+                        <button onclick="window.nextOnboarding()" class="w-full bg-white p-6 border-4 border-black rounded-2xl flex items-center gap-6 hover:bg-black hover:text-white transition-all active:translate-y-1 text-left group">
                             <div class="text-red-600 group-hover:text-white transition-colors"><i data-lucide="${opt.icon}"></i></div>
                             <span class="text-2xl font-bold uppercase">${opt.label}</span>
                         </button>
@@ -403,7 +408,7 @@
                 </div>`;
             } else {
                 html += `<div class="mt-auto md:mt-12">
-                    <button onclick="window.nextOnboarding()" class="w-full md:w-auto bg-red-600 text-white px-12 py-6 border-4 border-black text-2xl font-black uppercase flex items-center justify-center gap-4 hover:bg-black hover:text-white transition-all active:translate-y-1">
+                    <button onclick="window.nextOnboarding()" class="w-full md:w-auto bg-red-600 text-white px-12 py-6 border-4 border-black rounded-2xl text-2xl font-black uppercase flex items-center justify-center gap-4 hover:bg-black hover:text-white transition-all active:translate-y-1">
                         ${step.action} <i data-lucide="chevron-right" class="w-8 h-8"></i>
                     </button>
                 </div>`;
@@ -431,7 +436,7 @@
             document.getElementById('desktop-nav').innerHTML = NAV_ITEMS.map(item => {
                 const isActive = activeTab === item.id;
                 return `
-                    <button onclick="window.switchTab('${item.id}')" class="flex items-center gap-4 p-4 border-4 transition-all uppercase font-black text-lg ${isActive ? 'bg-black text-white border-black brutal-shadow-red translate-x-1' : 'bg-white text-gray-500 border-transparent hover:border-black hover:text-black'}">
+                    <button onclick="window.switchTab('${item.id}')" class="flex items-center gap-4 p-4 border-4 rounded-2xl transition-all uppercase font-black text-lg ${isActive ? 'bg-black text-white border-black brutal-shadow-red translate-x-1' : 'bg-white text-gray-500 border-transparent hover:border-black hover:text-black'}">
                         <i data-lucide="${item.icon}" class="w-7 h-7"></i> ${item.label}
                     </button>
                 `;
@@ -442,7 +447,7 @@
                 const isActive = activeTab === item.id;
                 return `
                     <button onclick="window.switchTab('${item.id}')" class="flex flex-col items-center gap-1 p-2 flex-1">
-                        <div class="transition-all duration-300 p-2 border-2 ${isActive ? 'bg-red-600 text-white border-black brutal-shadow -translate-y-1' : 'border-transparent text-gray-400'}">
+                        <div class="transition-all duration-300 p-2 border-2 rounded-xl ${isActive ? 'bg-red-600 text-white border-black brutal-shadow -translate-y-1' : 'border-transparent text-gray-400'}">
                             <i data-lucide="${item.icon}" class="w-5 h-5"></i>
                         </div>
                         <span class="text-[9px] sm:text-[10px] font-black uppercase transition-all ${isActive ? 'text-black opacity-100' : 'text-gray-400 opacity-0 hidden'}">${item.label}</span>
@@ -456,7 +461,6 @@
         window.switchTab = (tabId) => {
             activeTab = tabId;
             
-            // On cache les overlays (chat et match) discrètement sans forcer le ré-affichage de l'onglet Match
             document.getElementById('chat-interface').classList.add('hidden-screen');
             document.getElementById('match-overlay').classList.add('hidden-screen');
             currentChatProfile = null;
@@ -482,8 +486,8 @@
             const container = document.getElementById('match-card-container');
             if (MOCK_PROFILES.length === 0) {
                 container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center p-8 text-center bg-white w-full">
-                        <div class="w-24 h-24 bg-black flex items-center justify-center mb-8 border-4 border-red-600">
+                    <div class="h-full flex flex-col items-center justify-center p-8 text-center bg-white w-full rounded-3xl">
+                        <div class="w-24 h-24 bg-black flex items-center justify-center mb-8 border-4 border-red-600 rounded-full">
                             <i data-lucide="sparkles" class="w-12 h-12 text-white"></i>
                         </div>
                         <h3 class="text-4xl font-black uppercase mb-4">Fin du Game.</h3>
@@ -496,10 +500,10 @@
             const p = MOCK_PROFILES[0];
             container.innerHTML = `
                 <div class="relative w-full max-w-sm md:max-w-md h-full max-h-[550px] md:max-h-[650px]">
-                    <div id="swipe-card" class="absolute inset-0 bg-white border-4 border-black overflow-hidden flex flex-col transition-transform duration-300 brutal-shadow-lg">
+                    <div id="swipe-card" class="absolute inset-0 bg-white border-4 border-black rounded-3xl overflow-hidden flex flex-col transition-transform duration-300 brutal-shadow-lg">
                         <div class="h-[45%] md:h-1/2 relative border-b-4 border-black shrink-0">
-                            <img src="${p.img}" class="w-full h-full object-cover grayscale-[20%]" />
-                            <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 md:px-4 md:py-2 border-2 border-black flex items-center gap-2 font-black text-base md:text-lg">
+                            <img src="${p.img}" class="w-full h-full object-cover" />
+                            <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 md:px-4 md:py-2 border-2 border-black rounded-full flex items-center gap-2 font-black text-base md:text-lg">
                                 <i data-lucide="zap" class="w-4 h-4 md:w-5 md:h-5 fill-current"></i> ${p.match}%
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 md:p-6 pt-16">
@@ -510,13 +514,13 @@
                         <div class="p-4 md:p-6 flex-1 flex flex-col bg-white overflow-y-auto">
                             <p class="text-base md:text-lg font-bold text-black mb-4 leading-snug shrink-0">${p.bio}</p>
                             <div class="flex flex-wrap gap-2 mb-4 shrink-0">
-                                ${p.tags.map(tag => `<span class="bg-gray-100 text-black px-2 py-1 md:px-3 md:py-1 border-2 border-black font-black uppercase text-xs md:text-sm">${tag}</span>`).join('')}
+                                ${p.tags.map(tag => `<span class="bg-gray-100 text-black px-3 py-1 md:px-4 md:py-1 border-2 border-black rounded-full font-black uppercase text-xs md:text-sm">${tag}</span>`).join('')}
                             </div>
                             <div class="flex justify-center gap-6 mt-auto pt-4 shrink-0">
-                                <button onclick="window.handleSwipe('left')" class="w-16 h-16 md:w-20 md:h-20 bg-white border-4 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors active:translate-y-1 brutal-shadow hover:shadow-none">
+                                <button onclick="window.handleSwipe('left')" class="w-16 h-16 md:w-20 md:h-20 bg-white border-4 border-black rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors active:translate-y-1 brutal-shadow hover:shadow-none">
                                     <i data-lucide="x" class="w-8 h-8 md:w-10 md:h-10"></i>
                                 </button>
-                                <button onclick="window.handleSwipe('right')" class="w-16 h-16 md:w-20 md:h-20 bg-red-600 border-4 border-black flex items-center justify-center text-white hover:bg-black transition-colors active:translate-y-1 brutal-shadow hover:shadow-none">
+                                <button onclick="window.handleSwipe('right')" class="w-16 h-16 md:w-20 md:h-20 bg-red-600 border-4 border-black rounded-full flex items-center justify-center text-white hover:bg-black transition-colors active:translate-y-1 brutal-shadow hover:shadow-none">
                                     <i data-lucide="heart" class="w-8 h-8 md:w-10 md:h-10 fill-current"></i>
                                 </button>
                             </div>
@@ -528,8 +532,8 @@
 
         window.handleSwipe = (dir) => {
             const card = document.getElementById('swipe-card');
-            if(dir === 'left') card.className = "absolute inset-0 bg-white border-4 border-black overflow-hidden flex flex-col transition-transform duration-300 -translate-x-full rotate-[-10deg] opacity-0";
-            if(dir === 'right') card.className = "absolute inset-0 bg-white border-4 border-black overflow-hidden flex flex-col transition-transform duration-300 translate-x-full rotate-[10deg] opacity-0";
+            if(dir === 'left') card.className = "absolute inset-0 bg-white border-4 border-black rounded-3xl overflow-hidden flex flex-col transition-transform duration-300 -translate-x-full rotate-[-10deg] opacity-0";
+            if(dir === 'right') card.className = "absolute inset-0 bg-white border-4 border-black rounded-3xl overflow-hidden flex flex-col transition-transform duration-300 translate-x-full rotate-[10deg] opacity-0";
             
             setTimeout(() => {
                 if (dir === 'right') {
@@ -557,14 +561,14 @@
         // --- MESSAGES LOGIC ---
         function renderMessages() {
             const originalProfiles = [
-                { id: 1, name: 'Léa', age: 24, role: 'Étudiante', match: 94, img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600' },
-                { id: 2, name: 'Thomas', age: 26, role: 'Freelance', match: 88, img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600' }
+                { id: 1, name: 'Awa', age: 24, role: 'Étudiante', match: 94, img: 'https://images.unsplash.com/photo-1531123897727-8f129e1bfa8ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+                { id: 2, name: 'Cédric', age: 26, role: 'Freelance', match: 88, img: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
             ];
 
             document.getElementById('new-matches-list').innerHTML = originalProfiles.map(p => `
                 <div onclick="window.openChat(${p.id}, '${p.name}', '${p.img}', ${p.match})" class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
                     <div class="w-20 h-20 rounded-full border-4 border-black overflow-hidden relative brutal-shadow-red group-hover:translate-y-1 group-hover:shadow-none transition-all">
-                        <img src="${p.img}" class="w-full h-full object-cover grayscale-[20%]" />
+                        <img src="${p.img}" class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-red-600/20 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     <span class="font-black uppercase">${p.name}</span>
@@ -572,14 +576,14 @@
             `).join('');
 
             document.getElementById('chats-list').innerHTML = originalProfiles.map(p => `
-                <div onclick="window.openChat(${p.id}, '${p.name}', '${p.img}', ${p.match})" class="bg-white border-4 border-black p-4 flex items-center gap-4 cursor-pointer hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow">
-                    <img src="${p.img}" class="w-16 h-16 border-2 border-black object-cover grayscale-[20%]" />
+                <div onclick="window.openChat(${p.id}, '${p.name}', '${p.img}', ${p.match})" class="bg-white border-4 border-black rounded-2xl p-4 flex items-center gap-4 cursor-pointer hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow">
+                    <img src="${p.img}" class="w-16 h-16 border-2 border-black rounded-full object-cover" />
                     <div class="flex-1 overflow-hidden">
                         <div class="flex justify-between items-center mb-1">
                             <span class="font-black text-xl uppercase truncate">${p.name}</span>
                             <span class="text-xs font-bold text-gray-400">14:20</span>
                         </div>
-                        <p class="font-bold text-gray-600 truncate">Carrément ! Ce soir 19h ça te va ?</p>
+                        <p class="font-bold text-gray-600 truncate">C'est validé ! On s'appelle à 19h ?</p>
                     </div>
                 </div>
             `).join('');
@@ -595,7 +599,7 @@
             currentChatProfile = { id, name, img, match };
             chatMessages = [
                 { id: 1, text: "Salut ! J'ai vu qu'on a matché ⚡", sender: 'them' },
-                { id: 2, text: "Grave ! T'es dispo quand pour une visio ?", sender: 'me' }
+                { id: 2, text: "Grave ! T'es dispo quand pour un appel ?", sender: 'me' }
             ];
             
             document.getElementById('chat-header-img').src = img;
@@ -616,7 +620,7 @@
             const container = document.getElementById('chat-messages');
             container.innerHTML = chatMessages.map(m => `
                 <div class="flex ${m.sender === 'me' ? 'justify-end' : 'justify-start'}">
-                    <div class="p-4 border-4 border-black max-w-[85%] md:max-w-[70%] font-bold text-lg md:text-xl ${m.sender === 'me' ? 'bg-black text-white' : 'bg-white text-black brutal-shadow'}">
+                    <div class="p-4 border-4 border-black max-w-[85%] md:max-w-[70%] font-bold text-lg md:text-xl ${m.sender === 'me' ? 'bg-black text-white rounded-2xl rounded-br-none' : 'bg-white text-black brutal-shadow rounded-2xl rounded-bl-none'}">
                         ${m.text}
                     </div>
                 </div>
@@ -644,16 +648,16 @@
             const reste = expenses.filter(e => !e.paid).reduce((acc, curr) => acc + curr.amount, 0);
             const total = expenses.reduce((acc, curr) => acc + curr.amount, 0);
 
-            document.getElementById('finance-total-due').innerText = reste.toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' €';
-            document.getElementById('finance-total-coloc').innerText = total.toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' €';
+            document.getElementById('finance-total-due').innerText = reste.toLocaleString('fr-FR') + ' FCFA';
+            document.getElementById('finance-total-coloc').innerText = total.toLocaleString('fr-FR') + ' FCFA';
 
             const btnContainer = document.getElementById('finance-pay-all-btn-container');
             if (reste > 0) {
-                btnContainer.innerHTML = `<button onclick="window.payAllExpenses()" class="bg-black text-white px-8 py-5 border-4 border-black font-black text-xl md:text-2xl uppercase hover:bg-white hover:text-black transition-colors brutal-shadow hover:shadow-none flex items-center justify-center gap-4 w-full md:w-max active:translate-y-1">
+                btnContainer.innerHTML = `<button onclick="window.payAllExpenses()" class="bg-black text-white rounded-2xl px-6 py-4 md:px-8 md:py-5 border-4 border-black font-black text-xl uppercase hover:bg-white hover:text-black transition-colors brutal-shadow hover:shadow-none flex items-center justify-center gap-4 w-full md:w-max active:translate-y-1">
                     Régler ma part <i data-lucide="arrow-right" class="w-8 h-8"></i>
                 </button>`;
             } else {
-                btnContainer.innerHTML = `<div class="bg-white text-black px-8 py-5 border-4 border-black font-black text-xl uppercase inline-flex items-center gap-4 w-max brutal-shadow">
+                btnContainer.innerHTML = `<div class="bg-white text-black px-6 py-4 md:px-8 md:py-5 border-4 border-black rounded-2xl font-black text-xl uppercase inline-flex items-center gap-4 w-max brutal-shadow">
                     <i data-lucide="check" class="w-8 h-8 text-green-500"></i> Tout est réglé !
                 </div>`;
             }
@@ -664,26 +668,26 @@
                 const icon = exp.type === 'rent' ? 'home' : exp.type === 'shopping' ? 'coffee' : 'zap';
                 
                 return `
-                <div class="bg-white border-4 border-black flex flex-col sm:flex-row hover:shadow-[6px_6px_0px_0px_rgba(230,57,70,1)] transition-shadow">
+                <div class="bg-white border-4 border-black rounded-3xl overflow-hidden flex flex-col sm:flex-row hover:shadow-[6px_6px_0px_0px_rgba(230,57,70,1)] transition-shadow">
                     <div class="bg-black text-white p-4 flex sm:flex-col items-center justify-center sm:w-28 shrink-0 gap-2 sm:gap-0 border-b-4 sm:border-b-0 sm:border-r-4 border-black">
                         <span class="font-bold text-sm uppercase text-red-500 tracking-widest">${isAvr ? 'Avr' : 'Auj'}</span>
                         <span class="font-black text-4xl">${day}</span>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div class="flex items-center gap-5">
-                            <div class="w-14 h-14 flex items-center justify-center border-4 border-black ${exp.paid ? 'bg-gray-100 text-black' : 'bg-red-600 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'}">
-                                <i data-lucide="${icon}" class="w-6 h-6"></i>
+                    <div class="p-4 md:p-6 flex-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-3 md:gap-5">
+                            <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-4 border-black rounded-full ${exp.paid ? 'bg-gray-100 text-black' : 'bg-red-600 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'}">
+                                <i data-lucide="${icon}" class="w-5 h-5 md:w-6 md:h-6"></i>
                             </div>
                             <div>
-                                <h4 class="font-black text-2xl uppercase tracking-tight">${exp.title}</h4>
-                                <p class="font-bold text-gray-500 uppercase text-sm mt-1">${exp.paid ? 'Payé par toi' : 'Dépense commune'}</p>
+                                <h4 class="font-black text-xl md:text-2xl uppercase tracking-tight">${exp.title}</h4>
+                                <p class="font-bold text-gray-500 uppercase text-xs md:text-sm mt-1">${exp.paid ? 'Payé par toi' : 'Dépense commune'}</p>
                             </div>
                         </div>
-                        <div class="flex items-center md:flex-col md:items-end justify-between border-t-4 md:border-t-0 border-black pt-4 md:pt-0 mt-4 md:mt-0 gap-2">
-                            <span class="font-black text-3xl">${exp.amount.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €</span>
+                        <div class="flex items-center md:flex-col md:items-end justify-between border-t-4 md:border-t-0 border-black pt-4 md:pt-0 mt-2 md:mt-0 gap-2">
+                            <span class="font-black text-xl md:text-3xl whitespace-nowrap">${exp.amount.toLocaleString('fr-FR')} FCFA</span>
                             ${exp.paid 
-                                ? `<span class="px-4 py-1.5 border-4 border-black font-black uppercase text-sm bg-white text-black cursor-default">Réglé</span>`
-                                : `<button onclick="window.paySingleExpense(${exp.id})" class="px-4 py-1.5 border-4 border-black font-black uppercase text-sm bg-red-600 text-white animate-pulse-alert hover:bg-black hover:text-white hover:animate-none transition-colors active:translate-y-1">À payer</button>`
+                                ? `<span class="px-4 py-1.5 border-4 border-black rounded-xl font-black uppercase text-sm bg-white text-black cursor-default">Réglé</span>`
+                                : `<button onclick="window.paySingleExpense(${exp.id})" class="px-4 py-1.5 border-4 border-black rounded-xl font-black uppercase text-sm bg-red-600 text-white animate-pulse-alert hover:bg-black hover:text-white hover:animate-none transition-colors active:translate-y-1">À payer</button>`
                             }
                         </div>
                     </div>
@@ -719,14 +723,14 @@
         // --- HOME LOGIC (CHORES) ---
         function renderHome() {
             document.getElementById('chores-list').innerHTML = chores.map(chore => `
-                <div onclick="window.toggleChore(${chore.id})" class="bg-white p-6 border-4 border-black cursor-pointer flex items-center justify-between transition-all ${chore.done ? 'bg-gray-100 opacity-60' : 'hover:shadow-[4px_4px_0px_0px_rgba(230,57,70,1)]'}">
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 border-4 border-black flex items-center justify-center transition-colors ${chore.done ? 'bg-black' : 'bg-white'}">
-                            ${chore.done ? '<i data-lucide="check" class="w-5 h-5 text-white"></i>' : ''}
+                <div onclick="window.toggleChore(${chore.id})" class="bg-white p-4 md:p-6 border-4 border-black rounded-2xl cursor-pointer flex items-center justify-between transition-all ${chore.done ? 'bg-gray-100 opacity-60' : 'hover:shadow-[4px_4px_0px_0px_rgba(230,57,70,1)]'}">
+                    <div class="flex items-center gap-3 md:gap-4">
+                        <div class="w-6 h-6 md:w-8 md:h-8 border-4 border-black rounded-lg flex items-center justify-center transition-colors ${chore.done ? 'bg-black' : 'bg-white'}">
+                            ${chore.done ? '<i data-lucide="check" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>' : ''}
                         </div>
-                        <p class="font-black text-xl uppercase ${chore.done ? 'line-through text-gray-500' : 'text-black'}">${chore.title}</p>
+                        <p class="font-black text-base md:text-xl uppercase ${chore.done ? 'line-through text-gray-500' : 'text-black'}">${chore.title}</p>
                     </div>
-                    <span class="text-sm px-3 py-1 font-black uppercase border-2 border-black ${chore.assignee === 'Moi' ? 'bg-red-600 text-white' : 'bg-white text-black'}">
+                    <span class="text-xs md:text-sm px-2 md:px-3 py-1 font-black uppercase border-2 border-black rounded-full ${chore.assignee === 'Moi' ? 'bg-red-600 text-white' : 'bg-white text-black'}">
                         ${chore.assignee}
                     </span>
                 </div>
